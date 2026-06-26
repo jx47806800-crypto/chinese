@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宜璟銘 - Geek Spirit</title>
+    <style>
+        :root {
+            --neon-green: #00ff41;
+            --dark-bg: #0d0208;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            border: 1px solid var(--neon-green);
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        /* 模擬終端機標題欄 */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--neon-green);
+            color: black;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 1.5rem;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 5px rgba(0, 255, 65, 0.5);
+        }
+
+        .content {
+            line-height: 2;
+            font-size: 1.2rem;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2rem;
+            background: var(--neon-green);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            text-align: right;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>段考前BGM</h1>
+    <div class="content" id="text-content"></div>
+    <span class="cursor"></span>
+</div>
+
+<script>
+    const text = `—🎵 〈修煉段考〉原曲：林俊傑〈修煉愛情〉改編詞：國文理化
+    憑什麼要看古文那幾篇 翻譯總差了一點為什麼浮力公式一整疊 沉底浮起分不開有些分數 註定要跟它說再見有些題目 寫到天亮還是不會
+    故事的開端總是在失眠 看著黑板的考卷幾何的證明題多麼殘酷 連輔助線都畫錯我們在幾點 才決定要放棄睡眠在幾點 才開始向神明祈願
+    修煉國文的辛酸 課外古文各有各遺憾修煉理化的瘋狂 浮力公式最後變絕望期待數學越寫越沉迷 我不敢考 💯 怕老師會嚇到別開玩笑 只求這次能安全過關
+    記憶的梗在考完後退色 公式背完就忘了排開的體積乘以液密呢 到底算出了什麼最完美的答案 總是出現在交卷後最痛苦的懊悔 是粗心點錯的關頭
+    修煉國文的辛酸 課外古文各有各遺憾修煉理化的瘋狂 浮力公式最後變絕望期待數學越寫越沉迷 我不敢考 💯 怕老師會嚇到別開玩笑 只求這次能安全過關
+    快樂或痛苦 考完那一天才知道現在的煎熬 都是為了看見成績單微笑強忍著眼淚 把講義再翻一頁大後天的段考 我絕對不會逃～
+    修煉國文的辛酸 課外古文各有各遺憾修煉理化的瘋狂 浮力公式最後變絕望期待數學越寫越沉迷 我不敢考 💯 怕老師會嚇到別開玩笑 只求這次能安全過關
+    那些不會的題目 就隨風去吧大後天進考場 換我來嚇到老師吧～`;
+
+    let i = 0;
+    const speed = 100; // 打字速度 (ms)
+    const target = document.getElementById("text-content");
+
+    function typeWriter() {
+        if (i < text.length) {
+            target.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = typeWriter;
+</script>
+
+</body>
+</html>
